@@ -8,15 +8,14 @@ Microsoft-stack dependency.
 | --- | --- | --- | --- |
 | Python | `signward-idserver-client` | `pip install "signward-idserver-client[fastapi]"` | [Python SDK](https://developer.signward.com/sdks/python) |
 | JavaScript / TypeScript | `@signward/idserver-client` | `npm install @signward/idserver-client` | [JS/TS SDK](https://developer.signward.com/sdks/javascript) |
-| .NET | `IdServer.Client` | `dotnet add package IdServer.Client` | [.NET SDK](https://developer.signward.com/sdks/dotnet) |
+| .NET | `Signward.IdServer.Client` | `dotnet add package Signward.IdServer.Client` | [.NET SDK](https://developer.signward.com/sdks/dotnet) |
 
 ## What's in this repo
 
 - [`python/`](python/) — Python SDK for FastAPI, Flask, and other Python apps
 - [`js/`](js/) — JavaScript / TypeScript SDK for Node.js, Express, and the browser
 
-The .NET SDK (`IdServer.Client`) ships via NuGet; its source lives in the main
-Signward server repository.
+The .NET SDK (`Signward.IdServer.Client`) ships via NuGet.
 
 ## What the SDKs do
 
