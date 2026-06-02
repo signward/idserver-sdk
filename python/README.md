@@ -1,4 +1,4 @@
-# idserver-client
+# signward-idserver-client
 
 Python client SDK for [Signward Identity Server](https://signward.com) — OIDC
 authentication for **FastAPI** and other Python apps. Open source, no
@@ -17,13 +17,13 @@ Microsoft-stack dependency.
 ## Install
 
 ```bash
-pip install "idserver-client[fastapi]"
+pip install "signward-idserver-client[fastapi]"
 ```
 
 Core-only (no framework integration):
 
 ```bash
-pip install idserver-client
+pip install signward-idserver-client
 ```
 
 Python 3.10+.

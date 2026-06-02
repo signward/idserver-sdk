@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "idserver-client"
+name = "signward-idserver-client"
 version = "1.0.0"
 description = "Python client SDK for Signward Identity Server — OIDC authentication for FastAPI and other Python apps."
 readme = "README.md"
@@ -45,8 +45,8 @@ dev = [
 [project.urls]
 Homepage = "https://signward.com"
 Documentation = "https://developer.signward.com/sdks/python"
-Repository = "https://developer.signward.com"
-Issues = "mailto:support@signward.com"
+Repository = "https://github.com/signward/idserver-sdk"
+Issues = "https://github.com/signward/idserver-sdk/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/idserver"]

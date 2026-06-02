@@ -1,4 +1,4 @@
-# Changelog — idserver-client (Python)
+# Changelog — signward-idserver-client (Python)
 
 All notable changes to the Python SDK are documented in this file.
 

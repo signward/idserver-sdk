@@ -2,7 +2,7 @@
 
 Install with the ``fastapi`` extra::
 
-    pip install "idserver-client[fastapi]"
+    pip install "signward-idserver-client[fastapi]"
 
 Basic usage::
 
@@ -37,7 +37,7 @@ try:
     from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 except ImportError as exc:  # pragma: no cover
     raise ImportError(
-        "FastAPI is not installed. Install it with: pip install 'idserver-client[fastapi]'"
+        "FastAPI is not installed. Install it with: pip install 'signward-idserver-client[fastapi]'"
     ) from exc
 
 from idserver.client import IdServerClient

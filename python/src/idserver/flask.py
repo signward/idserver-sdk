@@ -2,7 +2,7 @@
 
 Install with the ``flask`` extra::
 
-    pip install "idserver-client[flask]"
+    pip install "signward-idserver-client[flask]"
 
 Basic usage::
 
@@ -48,7 +48,7 @@ try:
     from flask import Blueprint, abort, current_app, redirect, request, session, url_for
 except ImportError as exc:  # pragma: no cover
     raise ImportError(
-        "Flask is not installed. Install it with: pip install 'idserver-client[flask]'"
+        "Flask is not installed. Install it with: pip install 'signward-idserver-client[flask]'"
     ) from exc
 
 from idserver.client import IdServerClient

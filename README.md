@@ -6,7 +6,7 @@ Microsoft-stack dependency.
 
 | Language | Package | Install | Docs |
 | --- | --- | --- | --- |
-| Python | `idserver-client` | `pip install "idserver-client[fastapi]"` | [Python SDK](https://developer.signward.com/sdks/python) |
+| Python | `signward-idserver-client` | `pip install "signward-idserver-client[fastapi]"` | [Python SDK](https://developer.signward.com/sdks/python) |
 | JavaScript / TypeScript | `@signward/idserver-client` | `npm install @signward/idserver-client` | [JS/TS SDK](https://developer.signward.com/sdks/javascript) |
 | .NET | `IdServer.Client` | `dotnet add package IdServer.Client` | [.NET SDK](https://developer.signward.com/sdks/dotnet) |
 

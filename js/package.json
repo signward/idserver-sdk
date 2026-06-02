@@ -39,10 +39,10 @@
     "express",
     "sso"
   ],
-  "repository": "https://developer.signward.com",
+  "repository": "https://github.com/signward/idserver-sdk",
   "homepage": "https://signward.com",
   "bugs": {
-    "email": "support@signward.com"
+    "url": "https://github.com/signward/idserver-sdk/issues"
   },
   "engines": {
     "node": ">=18"
