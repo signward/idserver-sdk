@@ -4,6 +4,21 @@ All notable changes to the Python SDK are documented in this file.
 
 From v0.19.4 onwards, the Python SDK is **synchronised with the Signward Identity Server backend release** for consistency with the C# (NuGet) and JavaScript (npm) SDKs.
 
+## [1.0.0] — 2026-06-02
+
+First public release on PyPI, aligned with the Signward 1.0.0 GA launch.
+
+### Changed
+- Synchronised to the Signward backend **1.0.0** release.
+
+### Added
+- Bundled `LICENSE` file (MIT) in the source and wheel distributions.
+
+### Compatibility notes
+- **No API change** vs 0.19.4 — the `User`, `IdServerClient`, and FastAPI / Flask integration surface is unchanged. Existing code keeps working after upgrading.
+
+---
+
 ## [0.19.4] — 2026-05-26
 
 ### Changed

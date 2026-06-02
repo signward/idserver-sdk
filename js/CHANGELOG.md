@@ -4,6 +4,21 @@ All notable changes to the JavaScript / TypeScript SDK are documented in this fi
 
 From v0.19.4 onwards, the JS SDK is **synchronised with the Signward Identity Server backend release** for consistency with the C# (NuGet) and Python (PyPI) SDKs.
 
+## [1.0.0] — 2026-06-02
+
+First public release on npm, aligned with the Signward 1.0.0 GA launch.
+
+### Changed
+- Synchronised to the Signward backend **1.0.0** release.
+
+### Added
+- Bundled `LICENSE` file (MIT) in the published package.
+
+### Compatibility notes
+- **No API change** vs 0.19.4 — the `IdServerClient`, `userFromClaims`, and Express middleware surface is unchanged. Existing code keeps working after upgrading.
+
+---
+
 ## [0.19.4] — 2026-05-26
 
 ### Changed
