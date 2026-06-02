@@ -2,40 +2,19 @@
 
 All notable changes to the JavaScript / TypeScript SDK are documented in this file.
 
-From v0.19.4 onwards, the JS SDK is **synchronised with the Signward Identity Server backend release** for consistency with the C# (NuGet) and Python (PyPI) SDKs.
-
 ## [1.0.0] — 2026-06-02
 
-First public release on npm, aligned with the Signward 1.0.0 GA launch.
+First public release. OIDC authentication client for Node.js, Express, and the browser.
 
-### Changed
-- Synchronised to the Signward backend **1.0.0** release.
-
-### Added
-- Bundled `LICENSE` file (MIT) in the published package.
-
-### Compatibility notes
-- **No API change** vs 0.19.4 — the `IdServerClient`, `userFromClaims`, and Express middleware surface is unchanged. Existing code keeps working after upgrading.
-
----
-
-## [0.19.4] — 2026-05-26
-
-### Changed
-- **Versioning strategy** — the SDK now follows the backend version (was a separate `0.11.x` track until this release). The 0.11.1 → 0.19.4 jump is a one-time synchronisation, not a breaking change.
-- **Tested against Signward backend v0.19.4** (signup + recurring billing verified end-to-end).
-
-### Compatibility notes
-- **No breaking change** vs 0.11.1. The same `Client`, `userFromClaims`, Express middleware surface is preserved.
-- ESM-only (was already in 0.11.x). Requires Node ≥ 18.
-- The Signward backend now emits an additional `tenant_subdomain` claim from `/connect/userinfo` (v0.19.x). The SDK passes it through in the raw `claims` object on the user — application code can access it via `user.claims.tenant_subdomain`. No typed property is added in this release to avoid the breaking export surface change.
+### Features
+- OIDC Authorization Code flow with PKCE (S256)
+- Local JWT validation via the server's JWKS, with discovery + JWKS caching
+- Typed user model with built-in and per-tenant custom roles
+- Universal: works in Node 18+ and modern browsers (native `fetch` + Web Crypto)
+- First-class Express middleware
+- MIT licensed
 
 ### Tested platforms
 - Node.js 18, 20, 22
 - Express ≥ 4.18 (peer dependency, optional)
 - `jose` ≥ 5.9 for JWKS / JWT verification
-
----
-
-## [0.11.x] (historical)
-Pre-synchronisation track. Last release was 0.11.1 — feature-complete OIDC flow for Node.js + Express + browser SPA, PKCE, JWKS caching, token refresh.
