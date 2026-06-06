@@ -8,7 +8,7 @@ Basic usage::
 
     from fastapi import FastAPI, Depends
     from idserver import IdServerClient
-    from idserver.fastapi import IdServerAuth, CurrentUser, require_role
+    from idserver.fastapi import IdServerAuth, CurrentUser
 
     app = FastAPI()
 

@@ -2,6 +2,16 @@
 
 All notable changes to the Python SDK are documented in this file.
 
+## [1.0.1] — 2026-06-06
+
+Documentation release — no code or API changes.
+
+### Documentation
+- Added a first-class **Flask** quickstart (Blueprint + `login_required` / `role_required`) to the README, alongside the existing FastAPI quickstart
+- Fixed the `idserver.flask` module docstring to include the required `init_app(app, auth)` call
+- Removed a non-existent `require_role` import from the `idserver.fastapi` module docstring
+- Metadata: added the `flask` keyword and the `Framework :: Flask` classifier
+
 ## [1.0.0] — 2026-06-02
 
 First public release. OIDC authentication client for FastAPI, Flask, and other Python apps.

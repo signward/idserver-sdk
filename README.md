@@ -9,20 +9,24 @@ Microsoft-stack dependency.
 | Python | `signward-idserver-client` | `pip install "signward-idserver-client[fastapi]"` | [Python SDK](https://developer.signward.com/sdks/python) |
 | JavaScript / TypeScript | `@signward/idserver-client` | `npm install @signward/idserver-client` | [JS/TS SDK](https://developer.signward.com/sdks/javascript) |
 | .NET | `Signward.IdServer.Client` | `dotnet add package Signward.IdServer.Client` | [.NET SDK](https://developer.signward.com/sdks/dotnet) |
+| PHP / Laravel | `signward/idserver-client` | `composer require signward/idserver-client` | [PHP SDK](https://developer.signward.com/sdks/php) |
 
 ## What's in this repo
 
 - [`python/`](python/) — Python SDK for FastAPI, Flask, and other Python apps
 - [`js/`](js/) — JavaScript / TypeScript SDK for Node.js, Express, and the browser
 
-The .NET SDK (`Signward.IdServer.Client`) ships via NuGet.
+The .NET SDK (`Signward.IdServer.Client`) ships via NuGet, and the PHP / Laravel
+SDK lives in its own repo,
+[signward/idserver-client-php](https://github.com/signward/idserver-client-php)
+(Packagist: `signward/idserver-client`).
 
 ## What the SDKs do
 
 - OIDC Authorization Code flow with PKCE
 - Local JWT validation via the server's JWKS, with discovery + JWKS caching
 - Typed user model with built-in and per-tenant custom roles
-- Framework integrations: FastAPI / Flask (Python), Express (JS/TS), ASP.NET Core (.NET)
+- Framework integrations: FastAPI / Flask (Python), Express (JS/TS), ASP.NET Core (.NET), Laravel (PHP)
 
 ## Quickstart
 
@@ -50,6 +54,17 @@ import { requireAuth } from '@signward/idserver-client/express';
 
 const idserver = new IdServerClient({ authority: 'https://mytenant.signward.com', clientId: 'my-api' });
 app.get('/me', requireAuth(idserver), (req, res) => res.json({ email: req.user!.email }));
+```
+
+**PHP (Laravel):**
+
+```php
+use Illuminate\Support\Facades\Route;
+use Signward\IdServer\Laravel\Facades\IdServer;
+
+// Auto-discovered. Protect routes with the bundled middleware:
+Route::middleware('idserver.auth')->get('/me', fn () => IdServer::user()->email);
+Route::middleware('idserver.role:admin')->get('/admin', fn () => 'Admin area');
 ```
 
 See each package's own README for the full guide.

@@ -13,6 +13,12 @@ js/dist/
 js/dist-tests/
 *.tgz
 
+# PHP
+**/vendor/
+composer.phar
+php/composer.lock
+php/.phpunit.cache/
+
 # OS / editor
 .DS_Store
 Thumbs.db

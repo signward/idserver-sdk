@@ -1,7 +1,7 @@
 # signward-idserver-client
 
 Python client SDK for [Signward Identity Server](https://signward.com) — OIDC
-authentication for **FastAPI** and other Python apps. Open source, no
+authentication for **FastAPI**, **Flask**, and other Python apps. Open source, no
 Microsoft-stack dependency.
 
 ## Features
@@ -11,13 +11,14 @@ Microsoft-stack dependency.
 - Discovery + JWKS caching
 - Typed Pydantic v2 user model with built-in and per-tenant custom roles
 - Async-first (`httpx.AsyncClient`)
-- First-class **FastAPI** integration (`Depends`-friendly auth helpers)
+- First-class **FastAPI** (`Depends`-friendly helpers) and **Flask** (Blueprint + `login_required` / `role_required` decorators) integrations
 - MIT licensed
 
 ## Install
 
 ```bash
-pip install "signward-idserver-client[fastapi]"
+pip install "signward-idserver-client[fastapi]"   # FastAPI integration
+pip install "signward-idserver-client[flask]"      # Flask integration
 ```
 
 Core-only (no framework integration):
@@ -84,6 +85,45 @@ Clients call your API with a bearer token obtained from Signward:
 GET /me
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Quickstart — Flask (server-side login)
+
+The `[flask]` extra ships a Blueprint (`/login`, `/callback`, `/logout`) plus
+`login_required` / `role_required` decorators:
+
+```python
+from flask import Flask
+from idserver import IdServerClient
+from idserver.flask import IdServerAuth, init_app, login_required, role_required
+
+app = Flask(__name__)
+app.secret_key = "change-me"          # required: tokens + claims live in the session
+
+client = IdServerClient(
+    authority="https://mytenant.signward.com",
+    client_id="my-webapp",
+    client_secret="...",
+)
+
+auth = IdServerAuth(client, post_login_redirect="/")
+app.register_blueprint(auth.blueprint, url_prefix="/auth")
+init_app(app, auth)                   # required: wires the decorators to this app
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    user = auth.current_user()
+    return {"id": str(user.user_id), "email": user.email, "roles": user.roles}
+
+
+@app.route("/admin")
+@role_required("admin")
+def admin():
+    return "Admin area"
+```
+
+Register `https://myapp.com/auth/callback` as a redirect URI on your Signward client.
 
 ## Quickstart — Server-side login flow
 

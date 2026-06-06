@@ -8,7 +8,7 @@ Basic usage::
 
     from flask import Flask
     from idserver import IdServerClient
-    from idserver.flask import IdServerAuth, login_required, role_required
+    from idserver.flask import IdServerAuth, init_app, login_required, role_required
 
     app = Flask(__name__)
     app.secret_key = "change-me"  # required for session storage
@@ -20,6 +20,7 @@ Basic usage::
     )
     auth = IdServerAuth(idserver, post_login_redirect="/")
     app.register_blueprint(auth.blueprint, url_prefix="/auth")
+    init_app(app, auth)  # required: lets the decorators find this app's auth
 
     @app.route("/")
     def home():

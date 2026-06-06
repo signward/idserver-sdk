@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "signward-idserver-client"
-version = "1.0.0"
-description = "Python client SDK for Signward Identity Server — OIDC authentication for FastAPI and other Python apps."
+version = "1.0.1"
+description = "Python client SDK for Signward Identity Server — OIDC authentication for FastAPI, Flask, and other Python apps."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
     { name = "Signward" }
 ]
-keywords = ["authentication", "identity", "oidc", "oauth2", "jwt", "signward", "fastapi"]
+keywords = ["authentication", "identity", "oidc", "oauth2", "jwt", "signward", "fastapi", "flask"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -24,6 +24,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Session",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Framework :: FastAPI",
+    "Framework :: Flask",
 ]
 requires-python = ">=3.10"
 dependencies = [
